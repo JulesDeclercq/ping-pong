@@ -1,6 +1,6 @@
 # *PingPong AI*
 
-<img src="Pictures/robot.png" width="500">
+<img src="pictures\robot.png" width="500">
 
 # Voorwoord
 
@@ -149,3 +149,4 @@ De AI leert patronen te herkennen, waardoor het spel consistenter en doelgericht
 3. Russell, S., Norvig, P. *Artificial Intelligence: A Modern Approach*. Pearson, 2021.  
 4. Youtube [Youtube.com](https://www.youtube.com)
 5. Chatgpt [Chatgpt.com](https://chatgpt.com/)
+
