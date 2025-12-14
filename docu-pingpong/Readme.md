@@ -2,7 +2,7 @@
 
 <img src="pictures\robot.png" width="500">
 
-# Voorwoord
+## Voorwoord
 
 Met dit project sluiten wij onze opdracht voor AI Programming af.  
 
@@ -13,7 +13,7 @@ Wij willen graag onze leerkracht, **Frankie Loret**, bedanken voor zijn begeleid
 Wij wensen u veel leesplezier bij het doorlezen van ons verslag.
 
 
-# Inhoudsopgave
+##  Inhoudsopgave
 
 1. [Doelstelling(en)](#doelstellingen)  
 2. [Probleemstelling](#probleemstelling)  
@@ -24,13 +24,13 @@ Wij wensen u veel leesplezier bij het doorlezen van ons verslag.
 7. [Bibliografie](#bibliografie)  
 
 
-# Doelstellingen
+##  Doelstellingen
 
-## Hoofddoelstelling
+###  Hoofddoelstelling
 
 Het hoofddoel van dit project is om te onderzoeken hoe twee virtuele tafeltennisspelers zelfstandig kunnen leren om een pingpongwedstrijd te spelen in een gesimuleerde 3D-omgeving. Het systeem moet in staat zijn om op basis van eerdere ervaringen slagbeslissingen te verbeteren en op die manier steeds effectiever de bal terug te slaan.
 
-## Subdoelstellingen
+###  Subdoelstellingen
 
 1. **Simulatie opzetten**  
    - Creëren van een 3D-tafeltennissimulatie met een tafel, net, bal en twee paddles.  
@@ -62,15 +62,17 @@ Daarnaast is het van belang dat de AI leert omgaan met variatie en imperfecties,
 
 Door dit project aan te pakken, kunnen we beter begrijpen hoe simpele leeralgoritmes in een complexe, continue 3D-omgeving nuttige beslissingen kunnen nemen.
 
-# Analyse
+## Analyse
 
-## Stappen in de analyse van de probleemstelling
+### Stappen in de analyse van de probleemstelling
 
-Om het probleem van een AI-tafeltennisspelend systeem aan te pakken, zijn we begonnen met het opzetten van een **simulatieomgeving** waarin virtuele spelers kunnen leren. Hiervoor hebben we gebruikgemaakt van **PyBullet**, een 3D-simulatie- en physics-engine die collision detection en rendering ondersteunt. De fysica is bewust vereenvoudigd: de balbeweging wordt berekend met een **paraboolfunctie** gebaseerd op drie parameters – kracht (strength), hoek (angle) en spin – en het raakpunt van de paddle. Zo blijft het systeem voorspelbaar en tegelijkertijd dynamisch genoeg om een zinvol leerproces mogelijk te maken.
+Om het probleem van een AI-tafeltennisspelend systeem aan te pakken, zijn we begonnen met het opzetten van een **simulatieomgeving** waarin virtuele spelers kunnen leren. Hiervoor hebben we gebruikgemaakt van **PyBullet**, een 3D-simulatie- en physics-engine die collision detection en rendering ondersteunt. De fysica is bewust vereenvoudigd: de balbeweging wordt berekend met een **paraboolfunctie** gebaseerd op drie parameters – kracht (strength), hoek (angle) en spin – en het raakpunt van de paddle. Het traject gaat altijd door het paddle-raakpunt, zodat het gedrag voorspelbaar blijft maar dynamisch genoeg is voor zinvol leren.
 
 Vervolgens hebben we het **AI-leersysteem** ontwikkeld dat voor elke x-y-paddlepositie bepaalt welke slagparameters gebruikt worden. Succesvolle slagen worden opgeslagen in CSV-bestanden, zodat de spelers in toekomstige rally’s deze ervaring kunnen hergebruiken. Het algoritme combineert **exploitatie van eerder succesvolle slagen** en **exploratie van nieuwe parameters**, waarbij de verhouding adaptief wordt aangepast afhankelijk van het resultaat van de tegenstander.
 
-## Vergelijkbare projecten
+---
+
+### Vergelijkbare projecten
 
 Er bestaan enkele projecten die AI leren tafeltennissen of soortgelijke 3D-games aanpakken, zoals:
 
@@ -79,56 +81,86 @@ Er bestaan enkele projecten die AI leren tafeltennissen of soortgelijke 3D-games
 
 Ons project onderscheidt zich door het gebruik van een **eenvoudig CSV-gebaseerd leersysteem** in plaats van complexe neural networks, waardoor het sneller en transparanter kan leren.
 
-## Dataset en verkrijging
+---
 
-De dataset bestaat uit **door de AI verzamelde CSV-bestanden** met x-y-paddleposities en bijbehorende slagparameters (strength, angle, spin). Deze worden automatisch tijdens simulaties gegenereerd. Er is dus geen externe dataset nodig; alle data wordt **real-time geproduceerd en uitgebreid** naarmate meer rally’s worden gespeeld.
+### Dataset en verkrijging
 
-## AI algoritmen en structuur
+De dataset bestaat uit **door de AI verzamelde CSV-bestanden** met x-y-paddleposities en bijbehorende slagparameters (strength, angle, spin). Deze worden automatisch tijdens simulaties gegenereerd. Er is geen externe dataset nodig; alle data wordt **real-time geproduceerd en uitgebreid** naarmate meer rally’s worden gespeeld.
+
+Het systeem kijkt bij elke slag of de bal een punt scoort of niet:  
+- **Ballen die van de tafel vliegen of in het net belanden** → waardes worden **niet opgeslagen**  
+- **Ballen die op de andere kant van de tafel landen** → waardes worden **opgeslagen als bruikbare ervaring**  
+- **Ballen die op de andere kant landen én niet worden teruggeslagen** → waardes worden opgeslagen als **extra goede uitkomst**, zodat dit traject vaker kan worden herhaald  
+
+Om variatie in het leerproces te behouden, worden de x-y-punten **afgerond op één decimaal**, waardoor er kwantisatieruis ontstaat. Bovendien worden succesvolle trajecten **verspreid naar naburige posities** met afnemend gewicht (directe buren ~66%, iets verder ~44%, verder gelegen ~22%), zodat kennis sneller wordt gegeneraliseerd.
+
+---
+
+### AI-algoritmen en structuur
 
 We gebruiken een **tabular learning-benadering**: elke x-y-coördinaat correspondeert met een set parameters. Het algoritme kiest parameters op basis van:
 
-- **Exploitatie**: hergebruiken van bekende succesvolle waarden  
-- **Exploratie**: willekeurige variatie of nieuwe combinaties  
-- Adaptieve aanpassing van de exploitatie/exploratie-verhouding (bij niet teruggeslagen ballen)
+- **Exploitatie:** hergebruiken van bekende succesvolle waarden  
+- **Exploratie:** willekeurige variatie of nieuwe combinaties  
 
-## Tools en libraries
+**Verhoudingen van exploitatie/exploratie:**
+- Start: 66% exploitatie / 34% exploratie  
+- Wanneer een bal die over dat traject wordt geslagen niet wordt teruggeslagen, wordt de verhouding voor dat punt-specifiek aangepast naar circa 88% exploitatie / 12% exploratie  
 
-- **PyBullet**: simulatie en physics  
-- **Python 3.11**: programmeertaal  
-- **Pandas / CSV**: opslag en manipulatie van dataset  
-- **NumPy**: berekeningen en interpolaties  
-- **Matplotlib**: visualisatie van leercurves
+Hierdoor leert de AI trajecten die moeilijk terug te slaan zijn vaker te herhalen, vergelijkbaar met het uitbuiten van zwakke plekken van een tegenstander.
 
-## Target en inferentie
+Spin wordt **pas toegepast wanneer de bal de tafel raakt**, waardoor trajecten na een bounce extra worden gedraaid. Kleine variaties in strength en angle worden toegevoegd als de bal niet perfect in het midden van de paddle wordt geraakt, zodat het spel realistischer en minder deterministisch blijft.
 
-De AI draait op **CPU** en inferentie gebeurt **in real-time tijdens de simulatie**. Elke slag wordt berekend en uitgevoerd op basis van de huidige paddlepositie en de CSV-data.
+---
 
-## Hardware en software
+### Tools en libraries
 
-- **Hardware**: standaard laptop of desktop met CPU, 8–16 GB RAM, optioneel GPU voor grafische versnelling.  
-- **Software**: Windows 10 of Linux, Python 3.11, relevante libraries zoals hierboven.  
+- **PyBullet:** simulatie en physics  
+- **Python 3.11:** programmeertaal  
+- **Pandas / CSV:** opslag en manipulatie van dataset  
+- **NumPy:** berekeningen en interpolaties  
+- **Matplotlib:** visualisatie van leercurves
 
-## Deployment
+---
+
+### Target en inferentie
+
+De AI draait op **CPU** en inferentie gebeurt **in real-time tijdens de simulatie**. Elke slag wordt berekend en uitgevoerd op basis van de huidige paddlepositie en CSV-data.
+
+---
+
+### Hardware en software
+
+- **Hardware:** standaard laptop of desktop met CPU, 8–16 GB RAM, optioneel GPU voor grafische versnelling  
+- **Software:** Windows 10 of Linux, Python 3.11, relevante libraries zoals hierboven
+
+---
+
+### Deployment
 
 De software kan worden gedeployed als:
 
 - Python-script met een requirements.txt of pip-installatie  
-- Eventueel gecompileerd als **.exe** via PyInstaller voor standalone gebruik  
+- Eventueel gecompileerd als **.exe** via PyInstaller voor standalone gebruik
 
-## Samengevat
+---
 
-Door deze combinatie van **simulatie, adaptief leren, data-opslag en exploitatie/exploratie-strategieën** ontstaat een systeem dat in staat is om zelfstandig te leren tafeltennissen in een 3D-omgeving. Het ontwerp maakt het mogelijk om continu data te verzamelen, patronen te herkennen en slagen steeds consistenter en doelgerichter uit te voeren.
+### Samengevat
+
+Door deze combinatie van **simulatie, adaptief leren, data-opslag, exploitatie/exploratie-strategieën, kwantisatie, burenupdate en feedback-gebaseerde CSV-opslag** ontstaat een systeem dat zelfstandig kan leren tafeltennissen in een 3D-omgeving. Het ontwerp maakt het mogelijk om continu data te verzamelen, patronen te herkennen en slagen steeds consistenter en doelgerichter uit te voeren.
 
 
-# Resultaat
 
-## Overzicht van de onderdelen
+
+##  Resultaat
+
+###  Overzicht van de onderdelen
 - **Simulatieomgeving:** Tafel, net, bal en paddles in PyBullet  
 - **Slagberekening:** Kracht, hoek, spin, ruis voor variatie  
 - **Leersysteem:** CSV-bestanden, exploitatie/exploratie  
 - **Evaluatie van prestaties:** Leercurves, rally-observaties, gedragsanalyses  
 
-## Gedetailleerde resultaten
+###  Gedetailleerde resultaten
 1. **Simulatie en fysica:**  
    De bal volgt een paraboolfunctie. Trajecten zijn voorspelbaar en consistent, waardoor AI effectief kan leren.  
 
@@ -153,7 +185,7 @@ Door deze combinatie van **simulatie, adaptief leren, data-opslag en exploitatie
 
 De resultaten laten zien dat het systeem effectief patronen herkent, leert van ervaring en zich continu verbetert.
 
-# Uitbreiding 
+##  Uitbreiding 
 
 1. **Geavanceerdere algoritmes**  
    - In de toekomst kan een reinforcement learning-algoritme met Q-learning of policy gradient worden geïmplementeerd.  
@@ -171,7 +203,7 @@ De resultaten laten zien dat het systeem effectief patronen herkent, leert van e
    - Meer variatie in startposities en tegenstanders om het leerproces robuuster te maken.  
    - Grafische dashboards voor realtime monitoring van prestaties.
 
-# Conclusie
+##  Conclusie
 
 <img src="pictures\Schermafbeelding 2025-12-14 160124.png" width="300">
 
@@ -187,13 +219,14 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 - *Student 2:* Dit project gaf inzicht in de praktische toepassing van eenvoudige algoritmes en hoe kleine aanpassingen in strategie grote invloed kunnen hebben op prestaties.
 
 
-# Bibliografie
+##  Bibliografie
 
 - Sutton, R.S., & Barto, A.G. (2018). *Reinforcement Learning: An Introduction*. MIT Press.  
 - Russell, S., & Norvig, P. (2021). *Artificial Intelligence: A Modern Approach* (4th ed.). Pearson.  
 - PyBullet Documentation. (n.d.). Retrieved from [https://pybullet.org](https://pybullet.org)  
 - Pandas Documentation. (n.d.). Retrieved from [https://pandas.pydata.org](https://pandas.pydata.org)  
 - Numpy Documentation. (n.d.). Retrieved from [https://numpy.org](https://numpy.org)
+
 
 
 
