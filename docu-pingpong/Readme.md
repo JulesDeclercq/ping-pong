@@ -215,9 +215,9 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 - Resultaten bewijzen dat het systeem patronen herkent, efficiënter speelt en minder afhankelijk is van toeval.  
 
 **Persoonlijke reflecties:**  
-- *Student 1:* Ik heb geleerd hoe feedback en data-opslag een AI-systeem kunnen verbeteren en hoe simulaties essentieel zijn voor veilige en snelle experimenten.  
-- *Student 2:* Dit project gaf inzicht in de praktische toepassing van eenvoudige algoritmes en hoe kleine aanpassingen in strategie grote invloed kunnen hebben op prestaties.
-
+- *Student 1:* 
+- *Student 2:*
+- *Student 3:*
 
 ##  Bibliografie
 
@@ -226,6 +226,7 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 - PyBullet Documentation. (n.d.). Retrieved from [https://pybullet.org](https://pybullet.org)  
 - Pandas Documentation. (n.d.). Retrieved from [https://pandas.pydata.org](https://pandas.pydata.org)  
 - Numpy Documentation. (n.d.). Retrieved from [https://numpy.org](https://numpy.org)
+
 
 
 
