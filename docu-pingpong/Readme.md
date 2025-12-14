@@ -148,8 +148,8 @@ Door deze combinatie van **simulatie, adaptief leren, data-opslag en exploitatie
    - Fouten nemen af naarmate CSV-bestanden groeien  
    - Exploratie introduceert nieuwe succesvolle trajecten  
 
-> **Figuur 1:** Voorbeeld leercurve over 1000 rally’s  
->  <img src="pictures\Schermafbeelding 2025-12-14 172544.png" width="300">  
+> **Figuur 1:** Voorbeeld leercurve over 300 rally’s  
+>  <img src="pictures\Schermafbeelding 2025-12-14 180217.png" width="300">  
 
 De resultaten laten zien dat het systeem effectief patronen herkent, leert van ervaring en zich continu verbetert.
 
@@ -173,7 +173,7 @@ De resultaten laten zien dat het systeem effectief patronen herkent, leert van e
 
 # Conclusie
 
-<img src="pictures\Schermafbeelding 2025-12-14 180217.png" width="300">
+<img src="pictures\Schermafbeelding 2025-12-14 160124.png" width="300">
 
 Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenvoudig leersysteem hun spel significant kunnen verbeteren. Door parameters en resultaten bij te houden, ontstaat een ervaringsdatabase die toekomstige beslissingen optimaliseert.  
 
@@ -194,5 +194,6 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 - PyBullet Documentation. (n.d.). Retrieved from [https://pybullet.org](https://pybullet.org)  
 - Pandas Documentation. (n.d.). Retrieved from [https://pandas.pydata.org](https://pandas.pydata.org)  
 - Numpy Documentation. (n.d.). Retrieved from [https://numpy.org](https://numpy.org)
+
 
 
