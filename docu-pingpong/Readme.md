@@ -206,6 +206,7 @@ De resultaten laten zien dat het systeem effectief patronen herkent, leert van e
 3. **Fysieke robotimplementatie**  
    - Virtueel geleerde slagen kunnen vertaald worden naar een fysieke robotarm.  
    - Dit zou een koppeling vereisen tussen virtuele coördinaten en echte motorbewegingen.
+   - Alternatief zouden we een menselijke speler tegenover het algoritme kunnen zetten door gebruik te maken van b.v. een Wii Remote
 
 4. **Verbeterde dataset en visualisatie**  
    - Meer variatie in startposities en tegenstanders om het leerproces robuuster te maken.  
@@ -223,9 +224,11 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 - Resultaten bewijzen dat het systeem patronen herkent, efficiënter speelt en minder afhankelijk is van toeval.  
 
 **Persoonlijke reflecties:**  
-- *Student 1:* 
-- *Student 2:*
-- *Student 3:*
+- Declercq Jules (Environment): Ik vond dit een aangenaam project om te developeren. Ik ondervond dat de initiële ambitie om iemand tegen deze A.I. te laten spelen wat té ambiteus was, zeker in combinatie met de tijd die we moesten spenderen aan de projecten van andere vakken. Wél heeft het een duidelijk overzicht gegeven in hoe een project zoals dit tot stand komt, de "develoment proces". Voor wat het doel is van deze opdracht, vind ik dat ons project geslaagd is. Ik zou niet néé zeggen tegen dit project verder uit te breiden.
+
+- Kevin Bakeland (Learning Algoritme):
+
+- Bram De Bevere (Interactie Env & Learn Algor):
 
 ##  Bibliografie
 

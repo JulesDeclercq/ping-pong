@@ -1,4 +1,6 @@
 """
+Hoofd editors: Kevin
+
 CSV-based learning module for player AI.
 
 Each player has a CSV file that maps (x, y) paddle positions to (strength, angle_deg, spin_deg).

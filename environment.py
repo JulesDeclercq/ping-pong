@@ -1,4 +1,6 @@
 """
+Hoofd editors: Jules en Bram
+
 Lightweight PyBullet ping-pong simulator with deterministic two-period parabolic trajectories.
 
 Run the simulation:

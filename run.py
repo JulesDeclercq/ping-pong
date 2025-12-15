@@ -1,4 +1,6 @@
 """
+Hoofd editors: Kevin
+
 Small runner for the ping-pong environment.
 Edit the variables below to point to your player modules, set the desired
 winning score (set <=0 for infinite), and choose the animation speed.

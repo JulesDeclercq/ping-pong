@@ -1,4 +1,6 @@
 """
+Hoofd editors: Kevin en Bram
+
 AI controller for paddle2 (right side).
 
 This player uses CSV-based learning to map paddle positions to shot parameters
