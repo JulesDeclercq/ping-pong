@@ -226,9 +226,9 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 **Persoonlijke reflecties:**  
 - Declercq Jules (Environment): Ik vond dit een aangenaam project om te developeren. Ik ondervond dat de initiële ambitie om iemand tegen deze A.I. te laten spelen wat té ambiteus was, zeker in combinatie met de tijd die we moesten spenderen aan de projecten van andere vakken. Wél heeft het een duidelijk overzicht gegeven in hoe een project zoals dit tot stand komt, de "develoment proces". Voor wat het doel is van deze opdracht, vind ik dat ons project geslaagd is. Ik zou niet néé zeggen tegen dit project verder uit te breiden.
 
-- Kevin Bakeland (Learning Algoritme):
+- Bakeland Kevin(Learning Algoritme):
 
-- Bram De Bevere (Interactie Env & players): In het eerste moment leek dit project onmogelijk maar vanaf we wisten dat we pingpong gingen doen en op een grove manier wisten hoe werd duidelijk hoe we het gingen aanpakken. Eenmaal begonnen werd snel duidelijk wat we als volgende moesten doen. Uiteraard ging niet meteen alles goed. Gelukkig was er online veel info te vinden over AI programmeren en over PyBullet. Ook konden we gebruikmaken van AI programmeurs. Ook heb ik zeer veel hulp gehad van mijn medestudenten Jules en Kevin.
+- De Bevere Bram (Interactie Env & players): In het eerste moment leek dit project onmogelijk maar vanaf we wisten dat we pingpong gingen doen en op een grove manier wisten hoe werd duidelijk hoe we het gingen aanpakken. Eenmaal begonnen werd snel duidelijk wat we als volgende moesten doen. Uiteraard ging niet meteen alles goed. Gelukkig was er online veel info te vinden over AI programmeren en over PyBullet. Ook konden we gebruikmaken van AI programmeurs. Ook heb ik zeer veel hulp gehad van mijn medestudenten Jules en Kevin.
 
 ##  Bibliografie
 
@@ -237,6 +237,7 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 - PyBullet Documentation. (n.d.). Retrieved from [https://pybullet.org](https://pybullet.org)  
 - Pandas Documentation. (n.d.). Retrieved from [https://pandas.pydata.org](https://pandas.pydata.org)  
 - Numpy Documentation. (n.d.). Retrieved from [https://numpy.org](https://numpy.org)
+
 
 
 
