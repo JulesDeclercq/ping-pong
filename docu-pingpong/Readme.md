@@ -228,7 +228,7 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 
 - Kevin Bakeland (Learning Algoritme):
 
-- Bram De Bevere (Interactie Env & Learn Algor):
+- Bram De Bevere (Interactie Env & players): In het eerste moment leek dit project onmogelijk maar vanaf we wisten dat we pingpong gingen doen en op een grove manier wisten hoe werd duidelijk hoe we het gingen aanpakken. Eenmaal begonnen werd snel duidelijk wat we als volgende moesten doen. Uiteraard ging niet meteen alles goed. Gelukkig was er online veel info te vinden over AI programmeren en over PyBullet. Ook konden we gebruikmaken van AI programmeurs. Ook heb ik zeer veel hulp gehad van mijn medestudenten Jules en Kevin.
 
 ##  Bibliografie
 
@@ -237,6 +237,7 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 - PyBullet Documentation. (n.d.). Retrieved from [https://pybullet.org](https://pybullet.org)  
 - Pandas Documentation. (n.d.). Retrieved from [https://pandas.pydata.org](https://pandas.pydata.org)  
 - Numpy Documentation. (n.d.). Retrieved from [https://numpy.org](https://numpy.org)
+
 
 
 
