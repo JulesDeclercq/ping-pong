@@ -65,6 +65,7 @@ Door dit project aan te pakken, kunnen we beter begrijpen hoe simpele leeralgori
 ## Analyse
 
 ### Stappen in de analyse van de probleemstelling
+Jules/Kevin/Bram
 
 Om het probleem van een AI-tafeltennisspelend systeem aan te pakken, zijn we begonnen met het opzetten van een **simulatieomgeving** waarin virtuele spelers kunnen leren. Hiervoor hebben we gebruikgemaakt van **PyBullet**, een 3D-simulatie- en physics-engine die collision detection en rendering ondersteunt. De fysica is bewust vereenvoudigd: de balbeweging wordt berekend met een **paraboolfunctie** gebaseerd op drie parameters – kracht (strength), hoek (angle) en spin – en het raakpunt van de paddle. Het traject gaat altijd door het paddle-raakpunt, zodat het gedrag voorspelbaar blijft maar dynamisch genoeg is voor zinvol leren.
 
@@ -83,7 +84,8 @@ Ons project onderscheidt zich door het gebruik van een **eenvoudig CSV-gebaseerd
 
 ---
 
-### Dataset en verkrijging
+### Dataset en verkrijging 
+*Jules/Kevin*
 
 De dataset bestaat uit **door de AI verzamelde CSV-bestanden** met x-y-paddleposities en bijbehorende slagparameters (strength, angle, spin). Deze worden automatisch tijdens simulaties gegenereerd. Er is geen externe dataset nodig; alle data wordt **real-time geproduceerd en uitgebreid** naarmate meer rally’s worden gespeeld.
 
@@ -97,6 +99,7 @@ Om variatie in het leerproces te behouden, worden de x-y-punten **afgerond op é
 ---
 
 ### AI-algoritmen en structuur
+*Jules/Bram*
 
 We gebruiken een **tabular learning-benadering**: elke x-y-coördinaat correspondeert met een set parameters. Het algoritme kiest parameters op basis van:
 
@@ -155,12 +158,14 @@ Door deze combinatie van **simulatie, adaptief leren, data-opslag, exploitatie/e
 ##  Resultaat
 
 ###  Overzicht van de onderdelen
+*Jules*
 - **Simulatieomgeving:** Tafel, net, bal en paddles in PyBullet  
 - **Slagberekening:** Kracht, hoek, spin, ruis voor variatie  
 - **Leersysteem:** CSV-bestanden, exploitatie/exploratie  
 - **Evaluatie van prestaties:** Leercurves, rally-observaties, gedragsanalyses  
 
 ###  Gedetailleerde resultaten
+*Jules/Bram*
 1. **Simulatie en fysica:**  
    De bal volgt een paraboolfunctie. Trajecten zijn voorspelbaar en consistent, waardoor AI effectief kan leren.  
 
@@ -169,13 +174,16 @@ Door deze combinatie van **simulatie, adaptief leren, data-opslag, exploitatie/e
    - Na ~500 rally’s → 60–70% succesvolle slagen.  
    - Na ~1000 rally’s → 85–90% succesratio; AI gebruikt voornamelijk exploitatie.  
 
-3. **Gedragspatronen:**  
+3. **Gedragspatronen:**
+   *Jules/Kevin*
    - AI kiest voorkeurzones waar eerder succes was  
    - Minder extreme hoeken en krachten  
    - Meer consistente rally’s  
    - Lichte variatie zorgt voor realistische dynamiek  
 
-4. **Leercurves:**  
+5. **Leercurves:**
+   
+ *Jules/Kevin*
    - Grafieken tonen stijgende lijn van succesratio over rally’s  
    - Fouten nemen af naarmate CSV-bestanden groeien  
    - Exploratie introduceert nieuwe succesvolle trajecten  
@@ -226,6 +234,7 @@ Het project toont aan dat twee virtuele tafeltennisspelers met een relatief eenv
 - PyBullet Documentation. (n.d.). Retrieved from [https://pybullet.org](https://pybullet.org)  
 - Pandas Documentation. (n.d.). Retrieved from [https://pandas.pydata.org](https://pandas.pydata.org)  
 - Numpy Documentation. (n.d.). Retrieved from [https://numpy.org](https://numpy.org)
+
 
 
 
